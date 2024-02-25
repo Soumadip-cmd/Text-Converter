@@ -20,3 +20,13 @@
 .extra{
   float: right;
 }
+.size{
+  height: 239px;
+}
+.slide{
+  cursor: pointer;
+}
+body{
+  background: white;
+  color: black;
+}

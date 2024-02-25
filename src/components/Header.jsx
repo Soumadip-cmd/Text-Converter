@@ -1,13 +1,13 @@
 import React from "react";
-
-export default function Header() {
+import { Link } from "react-router-dom";
+export default function Header(props) {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
+          <Link className="navbar-brand" to="/">
             TextConverter
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -22,70 +22,71 @@ export default function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/">
-                  About Us
-                </a>
+                <Link className="nav-link" aria-current="page" to="/AboutUs">
+                  About
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/">
+                <Link className="nav-link" aria-current="page" to="/">
                   Service
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/">
+                <Link className="nav-link" aria-current="page" to="/">
                   Contact Us
-                </a>
+                </Link>
               </li>
-              
+
               <li className="nav-item dropdown">
-                <a
+                <Link
                   className="nav-link dropdown-toggle"
-                  href="/"
+                  to="/"
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
                   Others
-                </a>
+                </Link>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
-                    <a className="dropdown-item" href="/">
+                    <Link className="dropdown-item" to="/">
                       PDF to Word
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/">
+                    <Link className="dropdown-item" to="/">
                       Word to PDF
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/">
+                    <Link className="dropdown-item" to="/">
                       Painting
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>
             </ul>
-            <form className="d-flex">
+            <div className="form-check form-switch">
               <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
+                className="form-check-input slide"
+                type="checkbox"
+                role="switch"
+                id="radio"
+                onClick={props.darkmodebtn}
               />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+              <label className="form-check-label" htmlFor="radio">
+                {props.text2}
+              </label>
+            </div>
           </div>
         </div>
       </nav>
